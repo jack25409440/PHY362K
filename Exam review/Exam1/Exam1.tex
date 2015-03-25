@@ -1,0 +1,187 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath}
+\usepackage{cases}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{grffile}
+\usepackage{setspace}
+\usepackage{listings}
+
+\setlength\parindent{0pt}
+
+\author{Xiaohui Chen}
+\title{PHY 362K Review Note 1}
+
+\begin{document}
+\maketitle
+\begin{spacing}{2.0}
+
+\section{Prerequisite}
+
+\subsection{One-dimensional Wave Mechanics}
+
+The relationship between the particle's energy and the wave's frequency is $E=\hbar \omega =\frac{p^2}{2m}$
+
+The relationship between its momemtum and wavevector is $p=\hbar k$
+
+Therefore, the dispersion relation is $\omega= \frac{\hbar k^2}{2m}$
+
+Time-dependent Schrodinger equation: $\left( -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + V(x) \right)\Psi(x,t)= i\hbar \frac{\partial}{\partial t} \Psi(x,t)$
+
+The wave equation must have an $i$ in it, because that is the only way to construct a wave equation with the correct dispersion relation
+
+When the potential energy V is independent of time, the TDSE can be separated into a time equation and a space equation
+
+For a harmonic oscillator, $c_n=\int_{-\infty}^{\infty} \psi^{*}_n(x) f(x) dx$ where $f(x)$ is written as $f(x)=\sum_{n} c_n\psi_x(x)$. Here $|c_n|^2$ is the probability to measure the particle to be in its nth eigenstate with energy $E_n= \left( n+\frac{1}{2} \right) \hbar \omega$
+
+The wave function at time t is $\Psi(x,t)= \sum_n c_n e^{-\frac{iE_n t}{\hbar}} \psi_n(x)$
+
+\subsection{Bra-Ket}
+
+$|x\rangle$ represents a state of the particle in which its position is x. That means if you measure the position of the particle you are certain to the the result x
+
+$\langle x|\psi \rangle$ is the probability amplitude that a particle in state $|\psi\rangle$. In other words, it is the wavefunction of the particle $\langle x|\psi \rangle = \psi(x)$
+
+$\langle x|p \rangle$ is the probability amplitude that a particle in an eigenstate of momentum p will be found at position x. In other words, it is the wavefunction of a particle of definite momentum p
+
+$\langle x|p \rangle = Ne^{ikx}=Ne^{\frac{ipx}{\hbar}}= \frac{1}{\sqrt{2\pi\hbar}} e^{\frac{ipx}{\hbar}}$
+
+The state vector can always be written as $|\psi\rangle = \sum_n s_n| a_n\rangle$ where the values $s_n$ are arbitrary complex constants
+
+$|s_n|^2$ is the probability that you will get result $a_n$
+
+$\langle \psi| = \sum_n s_n^* \langle a_n|$
+
+If $|\psi\rangle=\sum_n s_n|a_n\rangle$ and $|\phi\rangle= \sum_n p_n|a_n\rangle$, then $\langle \psi|\phi \rangle= \sum s_n^* p_n$. This can be thought as the "degree of overlap" of the state vector $|\phi \rangle$ with the state vector $|\psi \rangle$ and $|\phi \rangle$
+
+$\sum_n |a_n\rangle \langle a_n|=1$
+
+An operator O is a mapping of the ket space onto itself. e.g $O|\psi \rangle= |\gamma \rangle$. A linear operator is an operator with the property that if $O|\psi_1 \rangle= |\gamma_1 \rangle$ and $O|\psi_2 \rangle= |\gamma_2 \rangle$, then $O(c_1|\psi_1 \rangle +c_2 |\psi_2 \rangle)  = c_1|\gamma_1 \rangle + c_2|\gamma_2 \rangle$
+
+If the matrix of O represents an observable, then it must be an Hermitian (the matrix must be equal to its complea-conjugate transpose)
+
+$\langle \phi|O$ is the bra such that $(\langle \phi|O)|\psi \rangle= \langle \phi|(O|\psi \rangle)$ for all possible kets $|\psi \rangle$
+
+Examples of adjoint:
+
+(1) The adjoint of $cA|\psi \rangle$ is $c^* \langle \psi| A^+$
+
+(2) The adjoint of $A|\psi\rangle \langle\phi|B$ is $B^+|\phi\rangle \langle\psi|A^+$
+
+(3) The adjoint of $AB|\gamma\rangle$ is $\langle\gamma|B^+A^+$
+
+If $[A,B]=c$ where $c$ is a complex constant, then A and B are incompatible observables, which means that it is not possible to measure both A and B with perfect precision. $\Delta A \Delta B \ge \frac{1}{2} \left| \langle [A,B] \rangle \right|$
+
+\section{Time Independent Perturbation}
+
+\subsection{Non-degenerate Perturbation}
+
+We want to solve $H|\psi_n \rangle= E_n|\psi_n \rangle$
+
+$H=H_0+H'$ where $H_0|\psi_n \rangle= E_n^{(0)}|\psi_n \rangle$
+
+$E_n^{(1)}= \langle \psi_n^{(0)}|H'|\psi_n^{(0)} \rangle$
+
+$E_n\approx E_n^{(0)} + E_n^{(1)}$ (1st order approach for the energy)
+
+$| \psi_n^{(1)} \rangle = \sum_{m\ne n} \frac{\rangle \psi_m^{(9)}|H'| \psi_n^{(0)} \rangle}{E_n^{(0)}- E_m^{(0)}} |\psi_m^{(0)} \rangle$
+
+$|\psi_n\rangle \approx |\psi_n^{(0)}\rangle + |\psi_n^{(1)}\rangle$
+
+$E_n \approx E_n^{(0)} + E_n^{(1)} + E_n^{(2)}$
+
+$\langle \psi_{nlm}^{(0)}|z|\psi_{n'l'm'}^{(0)} \rangle =0$ unless $m=m'$ and $l=l'+1$ or $l=l'-1$
+
+\subsection{Degenerate Perturbation Theory}
+
+$H'_{jk}= \langle \psi_{nj}^{(0)} |H'| \psi_{nk}^{(0)} \rangle$
+
+$\left[
+\begin{array}{cccc}
+H'_{11} & H'_{12} & \ldots &H'_{1g_{n}} \\
+H'_{21} & H'_{22} & \ldots &H'_{2g_{n}} \\
+\ldots & \ldots & \ddots & \ldots\\
+H'_{g_n1} & H'_{g_n2} & \ldots &H'_{g_n g_{n}}
+\end{array}
+\right] 
+\left[
+\begin{array}{c}
+c_{i1} \\
+c_{i2} \\
+\cdots \\
+c_{ig_n}
+\end{array}
+\right]
+=
+E_{ni}^{(1)}
+\left[
+\begin{array}{c}
+c_{i1} \\
+c_{i2} \\
+\cdots \\
+c_{ig_n}
+\end{array}
+\right]
+$
+
+More simply as $H'|\phi_{ni}^{(0)}\rangle = E_{ni}^{(1)} |\phi_{ni}^{(0)} \rangle$
+
+$|\phi_{ni}^{(0)} \rangle = c_{i1} |\psi_{n1}^{(0)} \rangle + c_{i2} |\psi_{n2}^{(0)} \rangle + \ldots + c_{ig_n} |\psi_{ng_n}^{(0)} \rangle$
+
+\section{Hydrogen-Like Particles}
+
+$\frac{1}{\lambda_{n,n'}}=R_H \left( \frac{1}{n^2}-\frac{1}{n'^2} \right)$ where $R_H \approx 1.097*10^7 m^{-1}$ is the Rydberg constant for hydrogen
+
+\subsection{Bohr Model}
+
+$E_n=-\frac{1}{2} \left( \frac{m_e}{\hbar^2} \right) \left( \frac{e^2}{4\pi \epsilon_0}\right)^2 \left( \frac{m_p}{m_p+m_e}\right) \frac{1}{n^2}$
+
+Bohr postulated that a photon may be given off only in a Bohr transition between these energy states, with the photon wavelength given by $\frac{hc}{\lambda_{n,n'}}=E_n-E_{n'}$
+
+$R_H= R_{\infty} \left( \frac{m_p}{m_p+m_e} \right)$ with $R_{\infty}=\left( \frac{1}{4\pi} \right) \frac{m}{\hbar^3 c} \left( \frac{e^2}{4\pi\epsilon_0} \right)^2$
+
+\subsection{Wavenumber or Inverse Centimeter Units}
+
+Transition energies can also be measured in wavenumbers by $\bar{v}=\frac{1}{\lambda}$
+
+$1\ cm^{-1} \leftrightarrow 29.979\ GHz$ and $8066\ cm^{-1} \leftrightarrow 1\ eV$
+
+\subsection{Schrodinger Equation for the Hydrogen Atom}
+
+$H\psi(\vec{r})= \left[ -\frac{\hbar^2}{2m_e} \vec{\bigtriangledown}^2 - \frac{Ze^2}{4\pi\epsilon_0r} \right] \psi(\vec{r})=E \psi(\vec{r})$
+
+$\psi_{nlm}(\vec{r})=R_{nl}(r)Y_{lm}(\theta, \phi)$
+
+Let $u(r)=rR(r)$, then $\left[ -\frac{\hbar^2}{2m_e} \frac{d^2}{dr^2} +V_{eff}(r) \right] u(r) =Eu(r)$ where $V_{eff}(r)= -\frac{Ze^2}{4\pi\epsilon_0r} + \frac{l(l+1)\hbar^2}{2m_e r^2}$
+
+Coulomb Potential: $-\frac{Ze^2}{4\pi\epsilon_0r}$
+
+Centrifugal Potential: $\frac{l(l+1)\hbar^2}{2m_e r^2}$
+
+$n=1,2,3,\ldots$ and $l=0,1,2,\ldots, n-1$
+
+The wave function is normalized in three dimensions
+
+The spherical harmonics are orthonormal on the unit sphere
+
+$\int_{0}^{\infty} |R_{nl}|^2r^2 dr=1$, where $|R_{nl}|^2r^2$ is the radial probability density
+
+\subsection{Hamiltonian of an Electron Interacting with an Electromagnetic Field}
+
+scalar potential: $\Phi(\vec{r},t)$ and scalar potential $\vec{A}(\vec{r},t)$
+
+$\vec{E}(\vec{r},t)= - \vec{\bigtriangledown} \Phi(\vec{r},t)- \frac{\partial \vec{A}(\vec{r},t)}{\partial t}$
+
+$\vec{B}(\vec{r},t)= \vec{\bigtriangledown} \times \vec{A}(\vec{r},t)$
+
+$H=\frac{1}{2m}(\vec{p} + q\vec{A})^2 + q\Phi= \frac{1}{2m} \left( \vec{p}^2+ q\vec{A}\cdot\vec{p} + q\vec{p}\cdot\vec{A} + q^2|\vec{A}|^2 \right) + q\Phi$
+
+If we choose a specific gauge: $\Phi=0$ and $\vec{A}=\frac{1}{2} \left( \vec{B}\times \vec{r} \right)$
+
+Then $H=\frac{\vec{p}^2}{2m_e} - \vec{\mu}\cdot\vec{B} + \frac{e^2}{8m_e}(x^2+y^2)$ where $\vec{\mu}= \vec{\mu_l} + \vec{\mu_s}= -\mu_B \left( \frac{\vec{l}+g_e\vec{s}}{\hbar} \right)$
+
+\end{spacing}
+\end{document} 

@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath}
+\usepackage{cases}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{grffile}
+\usepackage{setspace}
+\usepackage{listings}
+
+\setlength\parindent{0pt}
+
+\author{Xiaohui Chen}
+\title{PHY 362K Midterm 2 Review Note}
+\date{03/10/2015}
+
+\begin{document}
+\maketitle
+
+\begin{spacing}{2.0}
+
+\section{Normal Zeeman Effect}
+
+Bohr magneton: $\mu_B = \frac{e\hbar}{2m_e}$
+
+The levels with $m_l=0,+1,-1$ have energies $E_P^{(0)}$, $E_P^{(0)}+ \mu_B B$, $E_P^{(0)}- \mu_B B$
+
+The Bohr transition frequencies of these levels to a lower $s$ level are just $\omega_0$, $\omega_0+ \frac{\mu_B B}{\hbar}$, $\omega_0- \frac{\mu_B B}{\hbar}$ respectively
+
+The normal Zeeman effect does occur in real atoms when all electron spins are paired, such that the total spin of all electrons is zero
+
+Fine structure constant: $\alpha= \frac{e^2}{4\pi \epsilon_0 \hbar c} \approx \frac{1}{137.04}$
+
+Physics spectroscopic notation: $n^{2s+1}l_j$
+
+\section{Stark Effect in Hydrogen}
+
+$\vec{\mathcal{E}}= \mathcal{E}z$
+
+$H'=e\mathcal{E}z$
+
+$E_1^{(1)}= \langle \psi_{100}^{(0)}| H'| \psi_{100}^{(0)}\rangle= e\mathcal{E}\langle \psi_{100}^{(0)}|z| \psi_{100}^{(0)}\rangle = 0$
+
+$|\psi_{100}^{(1)} \rangle= \sum\limits_{(nlm)\ne 100} \frac{\langle \psi_{nlm}^{(0)}| H'| \psi_{100}^{(0)}\rangle}{E_1^{(0)}-E_n^{(0)}}$
+
+$\psi_{nlm}^{(0)}|z| \psi_{n'l'm'}^{(0)}\rangle = 0$ unless
+
+(1) $m=m'$ and 
+
+(2) $l=l'+1$ and $l=l'-1$
+
+Energy Shift:
+
+$E_1^{(2)}= \frac{e\mathcal{E}^2}{E_1^{(0)}} \sum\limits_{n=2}^{\infty} \frac{|\psi_{n10}^{(0)}|z| \psi_{100}^{(0)}\rangle|^2}{1-\frac{1}{n^2}}= -2*4\pi\epsilon_0 a_0 \mathcal{E}^2 \sum\limits_{n=2}^{\infty} \frac{|\psi_{n10}^{(0)}|z| \psi_{100}^{(0)}\rangle|^2}{1-\frac{1}{n^2}}$
+
+\section{Electron Spin}
+
+$[S_x,S_y]= i\hbar S_z$, $[S_y,S_z]= i\hbar S_x$, $[S_z,S_x]= i\hbar S_y$
+
+$S^2 |s\ m\rangle= \hbar^2s(s+1)|s\ m\rangle$
+
+$S_z |s\ m\rangle = \hbar m|s\ m\rangle$
+
+
+
+\subsection{Raising and Lowering Operators}
+
+$L_{\pm} |l\ m_l \rangle = \hbar \sqrt{l(l+1)-m_l(m_l \pm 1)} |l\ (m_l \pm 1) \rangle$
+
+$S_{\pm} |s\ m_s \rangle = \hbar \sqrt{s(s+1)-m_s(m_s \pm 1)} |s\ (m_s\pm 1) \rangle$
+
+$\because \vec{j}= \vec{l}+ \vec{s}$
+
+$\therefore J_{\pm}= L_{\pm} + S_{\pm}$
+
+$J_{\pm} |j\ m_j \rangle = \hbar \sqrt{j(j+1)-m_j(m_j \pm 1)} |s\ (m_j \pm 1) \rangle$
+
+\section{State of Hydrogen Atom including Spin}
+
+$\{ |n l m_l m_s \rangle \}$ are also eigenvectors of $H_z$
+
+$H_z |n l m_l m_s \rangle = \mu_B B (m_l+ 2m_s)|n l m_l m_s \rangle$
+
+$\{ |n l j m_j \rangle \}$ are also eigenvectors of $H_{fs}$
+
+$H_{fs} |n l j m_j \rangle = - |E_n^{(0)}| \left( \frac{\alpha}{n} \right)^2 \left[ \frac{n}{j+\frac{1}{2}} - \frac{3}{4n^4} \right]$
+
+Neither set are eigenvectors of both $H_{fs}$ and $H_z$
+
+Need to use degenerate perturbation theory with $H' = H_{fs}+ H_{z}$ for accurate description
+
+%Good quantum numbers
+
+\section{Relativistic Effects of the Hydrogen Atom}
+
+The energy of a free particle is $E=\sqrt{(m_e c^2)^2 + (pc)^2}$. Therefore, $i\hbar \frac{\partial \psi}{\partial t} = \sqrt{m_e^2 c^4 - \hbar^2 c^2 \vec{\bigtriangledown}^2} \psi$
+
+Alternatively, we should write $H^2= m_e^2 c^4 + p^2 c^2$, then we write $-\hbar^2 \frac{\partial^2 \psi}{\partial t^2} = (m_e^2 c^4 - \hbar^2 c^2 \vec{\bigtriangledown}^2) \psi$
+
+The atom is placed in uniform applied fields $\vec{\mathcal{E}}= \mathcal{E} \hat{z}$ and $\vec{B}= B \hat{z}$. Then the Hamiltonian is $H= H_0 - \vec{\mu} \cdot \vec{B} + \frac{e^2 B^2}{8m_e} \left( x^2 + y^2 \right) + e\mathcal{E} z + H_{fs}$
+
+$H_0= \frac{\vec{p}^2}{2m_e} - \frac{e^2}{4\pi \epsilon_0 r}$
+
+$\vec{\mu} = \vec{\mu_l} + \vec{\mu_s} = -\mu_B \left( \frac{\vec{l}+ g_e \vec{s}}{\hbar} \right)$
+
+$g_e \approx 2$
+
+\section{Fine Structure of the Hydrogen Atom}
+
+$H_{fs}= H_{kin} + H_{so} + H_D$
+
+kinetic term: $H_{kin}= -\frac{\vec{p}^4}{8m_e^3 c^2}$
+
+spin-orbit term: $H_{so}= \left( \frac{e^2}{4\pi \epsilon_0} \right) \left( \frac{1}{2m_e^2 c^2} \right) \frac{\vec{l} \cdot \vec{s}}{r^3}$
+
+Darwin term: $H_D= \frac{\hbar^2}{8m_e^2 c^2} 4\pi \left( \frac{e^2}{4\pi\epsilon_0} \right) \delta^3(\vec{r})$
+
+$\langle H_{kin} \rangle = E_n^{(0)} \frac{\alpha^2}{n^2}$
+
+$\langle H_{so} \rangle = \left( \frac{e^2}{4\pi\epsilon_0} \right) \left( \frac{1}{2m_e^2 c^2} \right) \langle \vec{l} \cdot \vec{s} \rangle \langle \frac{1}{r^3} \rangle $
+
+$\langle H_{D} \rangle= \frac{\alpha^2 m_e c^2}{2n^2} \frac{\alpha^2}{n} \delta_{l0}= -E_n^{(0)} \frac{\alpha^2}{n} \delta_{l0}$
+
+$\langle n,l,j,m_j|H_{fs}| n,l,j,m_j \rangle = \left( -\frac{1}{2n^2} \alpha^2 m_e c^2 \right) \left( \frac{\alpha^2}{n^2} \right) \left( \frac{n}{j+\frac{1}{2}}- \frac{3}{4} \right)$
+
+$E_n^{(0)}= \left( -\frac{1}{2n^2} \alpha^2 m_e c^2 \right)$
+
+\section{Abnormal Zeeman Effect}
+
+\subsection{High-Field Limit}
+
+$|\langle H_z \rangle| >> |\langle H_{fs} \rangle|$
+
+$H= H_0 +H_z + H_{fs}$
+
+The first two terms are large while the last term is small
+
+$E_{m_l m_s} \approx E_n^{(0)} + \mu_B (m_l +2m_s) + \langle n l m_l m_s |H_{fs}| n l m_l m_s \rangle$
+
+\subsection{Low-Field Limit}
+
+$|\langle H_z \rangle| << |\langle H_{fs} \rangle|$
+
+$H= H_0 +H_{fs} + H_{z}$
+
+The first two terms are large while the last term is small
+
+$E_{j m_j} \approx E_n^{(0)} - \frac{\alpha^2 |E_n^{(0)}|}{n^4} \left[ \frac{n}{j+\frac{1}{2}} - \frac{3}{4n^4} \right] + \frac{\mu_B B}{\hbar} \langle n l j m_j |l_z+2s_z| n l j m_j \rangle$
+
+$\langle H_z \rangle = g_j \mu_B B m_j$
+
+Lande g-factor: $g_j = \left[ 1+ \frac{j(j+1)+s(s+1)-l(l+1)}{2j(j+1)} \right]$
+
+\subsection{Good Quantum Numbers}
+
+correspond to observables that approximately commute with H
+
+eigenvectors of H will be labelled by the good quantum numbers
+
+\section{Basic Properties of Nuclei}
+
+$m_p=1.673*10^{-27} kg$
+
+$m_n = 1.675*10^{-27} kg$
+
+$d_{nucl} \approx 2.5 A^{\frac{1}{3}} fm$
+
+$1 fm = 10^{-15} m$
+
+I is integer if \#protrons+\#electrons=even
+
+I is half integer if \#protrons+\#electrons=odd
+
+\section{Hyperfine Structure}
+
+The nuclear spin eigenstate is given by $|I,M_i \rangle$, where $M_I = -I, \ldots, I$. The eigenvalue equations are
+
+$\vec{I}^2 |I ,M_I \rangle = \hbar^2 I(I+1) |I,M_I \rangle$
+
+$I_z |I ,M_I \rangle= \hbar M_I |I ,M_I \rangle$
+
+The nuclear magnetic dipole moment is $\vec{\mu_I} = g_I \mu_n \frac{\vec{I}}{\hbar}$
+
+$\mu_n = \frac{e\hbar}{2m_p}= 5.051 *10^{-27} J/T$ is the nuclear magneton
+
+$H_{hf}= -\frac{\mu_0}{4\pi} \left\{ \frac{2\mu_B}{\hbar r^3} \vec{l} \cdot \vec{\mu_I} - \frac{1}{r^3} \left[ \vec{\mu_e} \cdot \vec{\mu_I} - 3(\vec{\mu_I} \cdot \hat{r})(\vec{\mu_e} \cdot \hat{r}) \right] + \frac{8\pi}{3} \vec{\mu_e} \cdot \vec{\mu_I} \delta^3(\vec{r}) \right\}$
+
+When the electron is in ground state, it is reduced to Fermi Hamiltonian
+
+$H_{Fermi}= -\frac{8\pi}{3} \left( \frac{\mu_0}{4\pi} \right) \vec{\mu_e} \cdot \vec{\mu_I} \delta^3(\vec{r})= \frac{8\pi}{3} \left( \frac{\mu_0}{4\pi} \right) g_e \mu_B g_I \mu_n \frac{\vec{I} \cdot \vec{s}}{\hbar^2} \delta^3(\vec{r})= A \frac{\vec{I} \cdot \vec{s}}{\hbar^2}$
+
+$A=\frac{8\pi}{3} \left( \frac{\mu_0}{4\pi} \right) g_e \mu_B g_I \mu_n |\psi(0)|^2$
+
+\end{spacing}
+\end{document} 
