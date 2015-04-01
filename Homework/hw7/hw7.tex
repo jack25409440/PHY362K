@@ -22,6 +22,22 @@
 
 \section{} %1
 
+Since the particle is in infinite square well, the engergy is $E_n= \frac{n^2 \pi^2 \hbar^2}{2ma^2}$
+
+$\psi_n(x)= \sqrt{\frac{2}{a}} \sin \left( \frac{n\pi}{a}x  \right)$
+
+Since the transition is from state $n=1$ to state $n=2$, we get $\omega_{21} = \frac{E_2-E_1}{\hbar} = \frac{3\pi^2 \hbar}{2ma^2}$
+
+$H'_{21}(t) = \langle 2| H'|1 \rangle  = \int_{0}^{a} \psi_2^*(x) Ax^2e^{-\gamma t} \psi_1(x) dx = -\frac{16 a^2 A e^{-t \gamma }}{9 \pi ^2}  $ (Using Mathematica)
+
+$\therefore c_2 = -\frac{i}{\hbar} \int_{0}^{T} e^{i\omega_{21}t } H'_{21}(t) dt = \frac{32 i a^4 A \left(1-e^{-T \gamma +\frac{3 i \pi ^2 T \hbar }{2 a^2 m}}\right) m}{9 \pi ^2 \hbar  \left(2 a^2 m \gamma -3 i \pi ^2 \hbar \right)} $
+
+$\therefore P_{1 \rightarrow 2} = |c_2|^2 = \frac{1024 a^8 A^2 m^2}{81\pi^4 \hbar^2(4a^4 m^2\gamma^2 + 9\pi^4\hbar^2)} \left(1-e^{-T \gamma +\frac{3 i \pi ^2 T \hbar }{2 a^2 m}}\right) \left(1-e^{-T \gamma -\frac{3 i \pi ^2 T \hbar }{2 a^2 m}}\right)$
+
+When $T \rightarrow \infty$, $ \left(1-e^{-T \gamma +\frac{3 i \pi ^2 T \hbar }{2 a^2 m}}\right) \rightarrow 0 $ and $ \left(1-e^{-T \gamma -\frac{3 i \pi ^2 T \hbar }{2 a^2 m}}\right) \rightarrow 0 $
+
+Therefore in this case $P_{1 \rightarrow 2} = \frac{1024 a^8 A^2 m^2}{81\pi^4 \hbar^2(4a^4 m^2\gamma^2 + 9\pi^4\hbar^2)}$
+
 \section{} %2
 
 \subsection*{(a)}
